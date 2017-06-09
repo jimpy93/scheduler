@@ -24,7 +24,7 @@ func (q *Scheduler) Start(){
                 if !hasHead{
                     tchan = time.After(5 * time.Minute)
                 } else {
-                    tchan = time.After(time.Now().Sub(h.Time))
+                    tchan = time.After(h.Time.Sub(time.Now()))
                 }
                 select{
                 case <- q.changed:
